@@ -94,7 +94,7 @@
     .hero {
       background: linear-gradient(120deg, #00996a, #00b88a);
       color: #ffffff;
-      padding: 30px 0 40px;
+      padding: 24px 0 40px;
     }
 
     .hero-grid {
@@ -106,8 +106,31 @@
 
     .breadcrumb {
       font-size: 0.8rem;
-      margin-bottom: 8px;
+      margin-bottom: 6px;
       opacity: 0.85;
+    }
+
+    .route-strip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background-color: rgba(0, 0, 0, 0.24);
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      margin-bottom: 8px;
+    }
+
+    .route-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background-color: #ffdd57;
+    }
+
+    .route-text {
+      font-weight: 500;
+      letter-spacing: 0.02em;
     }
 
     .hero-title {
@@ -152,6 +175,31 @@
       font-size: 0.83rem;
       margin-top: 8px;
       opacity: 0.9;
+    }
+
+    /* Info strip under hero */
+    .info-strip {
+      margin-top: 18px;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+      font-size: 0.78rem;
+    }
+
+    .info-pill {
+      background-color: rgba(0, 0, 0, 0.18);
+      border-radius: 10px;
+      padding: 7px 8px;
+    }
+
+    .info-pill-label {
+      opacity: 0.8;
+      font-size: 0.73rem;
+    }
+
+    .info-pill-value {
+      font-weight: 600;
+      font-size: 0.83rem;
     }
 
     /* Booking card */
@@ -403,10 +451,16 @@
       .hero-title {
         font-size: 1.5rem;
       }
+      .info-strip {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
     }
 
     @media (max-width: 600px) {
       .highlight-grid {
+        grid-template-columns: 1fr;
+      }
+      .info-strip {
         grid-template-columns: 1fr;
       }
     }
@@ -446,6 +500,12 @@
         <div class="breadcrumb">
           Home / Student Trips / Jakarta Bandung
         </div>
+
+        <div class="route-strip">
+          <span class="route-dot"></span>
+          <span class="route-text">Semarang - Jakarta - Bandung - Semarang</span>
+        </div>
+
         <h1 class="hero-title">3D2N Jakarta Bandung Student Trip</h1>
         <p class="hero-subtitle">
           A short escape that combines amusement parks, beach views, shopping streets, hot springs and local food. 
@@ -465,6 +525,26 @@
         <p class="hero-note">
           All information on this page is written in English and can be used as a sample project for English for Tourism presentations.
         </p>
+
+        <!-- Info strip similar to product summary -->
+        <div class="info-strip">
+          <div class="info-pill">
+            <div class="info-pill-label">Duration</div>
+            <div class="info-pill-value">3 days 2 nights</div>
+          </div>
+          <div class="info-pill">
+            <div class="info-pill-label">Departure point</div>
+            <div class="info-pill-value">Universitas Muhammadiyah Semarang</div>
+          </div>
+          <div class="info-pill">
+            <div class="info-pill-label">Trip type</div>
+            <div class="info-pill-value">Educational and leisure group</div>
+          </div>
+          <div class="info-pill">
+            <div class="info-pill-label">Suggested group size</div>
+            <div class="info-pill-value">At least 30 participants</div>
+          </div>
+        </div>
       </div>
 
       <aside class="booking-card">
@@ -648,7 +728,6 @@
   </footer>
 
   <script>
-    // Simple tab switcher
     const buttons = document.querySelectorAll(".tab-button");
     const panes = document.querySelectorAll(".tab-pane");
 
