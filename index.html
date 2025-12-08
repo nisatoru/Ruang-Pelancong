@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3D2N Jakarta – Bandung Educational Trip | UNIMUS Tour</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background-color: #f5f7fb;
+      color: #222;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 16px;
+    }
+
+    /* Top bar */
+    .topbar {
+      background-color: #016f4a;
+      color: #fff;
+      padding: 8px 0;
+      font-size: 0.85rem;
+    }
+
+    .topbar-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .topbar-inner span {
+      opacity: 0.9;
+    }
+
+    /* Header */
+    header {
+      background-color: #ffffff;
+      border-bottom: 1px solid #e2e5ef;
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 16px;
+    }
+
+    .brand {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      font-weight: 700;
+      color: #016f4a;
+      font-size: 1.1rem;
+    }
+
+    .brand-mark {
+      width: 24px;
+      height: 24px;
+      border-radius: 6px;
+      background: linear-gradient(135deg, #00b887, #016f4a);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      font-size: 0.9rem;
+    }
+
+    .nav-links a {
+      padding: 4px 6px;
+    }
+
+    .nav-links a:hover {
+      color: #016f4a;
+    }
+
+    /* Hero */
+    .hero {
+      background: linear-gradient(120deg, #016f4a, #00b887);
+      color: #ffffff;
+      padding: 26px 0 40px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 2.1fr 1.4fr;
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .breadcrumb {
+      font-size: 0.8rem;
+      margin-bottom: 10px;
+      opacity: 0.9;
+    }
+
+    .breadcrumb span {
+      opacity: 0.9;
+    }
+
+    .hero-title {
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .hero-subtitle {
+      font-size: 0.95rem;
+      margin-bottom: 14px;
+      opacity: 0.95;
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 18px;
+      font-size: 0.8rem;
+    }
+
+    .tag {
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      background-color: rgba(0, 0, 0, 0.05);
+    }
+
+    .hero-list {
+      font-size: 0.9rem;
+      margin-bottom: 6px;
+    }
+
+    .hero-list li {
+      margin-left: 16px;
+      margin-bottom: 4px;
+    }
+
+    .hero-note {
+      margin-top: 10px;
+      font-size: 0.82rem;
+      opacity: 0.95;
+    }
+
+    .booking-card {
+      background-color: #ffffff;
+      color: #222;
+      border-radius: 14px;
+      padding: 18px 18px 16px;
+      box-shadow: 0 10px 26px rgba(0, 0, 0, 0.15);
+    }
+
+    .price-label {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #016f4a;
+      margin-bottom: 4px;
+      font-weight: 600;
+    }
+
+    .price-value {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 3px;
+    }
+
+    .price-caption {
+      font-size: 0.8rem;
+      color: #666;
+      margin-bottom: 12px;
+    }
+
+    .info-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.86rem;
+      margin-bottom: 4px;
+    }
+
+    .info-label {
+      color: #777;
+    }
+
+    .btn-main {
+      display: block;
+      margin-top: 14px;
+      width: 100%;
+      padding: 10px 12px;
+      border-radius: 999px;
+      background-color: #ffb703;
+      border: none;
+      text-align: center;
+      font-weight: 700;
+      font-size: 0.95rem;
+      cursor: pointer;
+      color: #222;
+    }
+
+    .btn-main:hover {
+      background-color: #ffa62b;
+    }
+
+    .btn-outline {
+      margin-top: 8px;
+      width: 100%;
+      padding: 9px 12px;
+      border-radius: 999px;
+      border: 1px solid #e0e4f0;
+      background-color: #ffffff;
+      font-size: 0.9rem;
+      cursor: pointer;
+    }
+
+    .btn-outline:hover {
+      background-color: #f5f7fb;
+    }
+
+    .booking-note {
+      margin-top: 10px;
+      font-size: 0.78rem;
+      color: #777;
+    }
+
+    /* Tabs */
+    .tabs-wrapper {
+      margin-top: 24px;
+      margin-bottom: 40px;
+    }
+
+    .tabs-header {
+      background-color: #ffffff;
+      border-radius: 10px 10px 0 0;
+      border: 1px solid #e2e5ef;
+      border-bottom: none;
+      padding: 6px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2px;
+    }
+
+    .tab-button {
+      padding: 8px 14px;
+      border-radius: 6px;
+      border: none;
+      background-color: transparent;
+      font-size: 0.86rem;
+      cursor: pointer;
+      color: #555;
+    }
+
+    .tab-button.active {
+      background-color: #016f4a;
+      color: #ffffff;
+    }
+
+    .tabs-body {
+      border-radius: 0 0 10px 10px;
+      border: 1px solid #e2e5ef;
+      background-color: #ffffff;
+      padding: 18px 18px 22px;
+    }
+
+    .tab-pane {
+      display: none;
+      font-size: 0.92rem;
+    }
+
+    .tab-pane.active {
+      display: block;
+    }
+
+    /* Itinerary */
+    .day-block {
+      margin-bottom: 20px;
+    }
+
+    .day-title {
+      font-weight: 700;
+      margin-bottom: 6px;
+      color: #016f4a;
+      font-size: 0.98rem;
+    }
+
+    .day-sub {
+      font-size: 0.83rem;
+      margin-bottom: 8px;
+      color: #777;
+    }
+
+    table.itinerary {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+    }
+
+    .itinerary th,
+    .itinerary td {
+      border: 1px solid #e1e4ee;
+      padding: 6px 8px;
+      vertical-align: top;
+    }
+
+    .itinerary th {
+      background-color: #f3f5fb;
+      font-weight: 600;
+      text-align: left;
+    }
+
+    .itinerary td.time-col {
+      width: 150px;
+      white-space: nowrap;
+    }
+
+    .itinerary td.day-col {
+      width: 80px;
+      font-weight: 600;
+    }
+
+    /* Lists */
+    .bullet-list {
+      margin-left: 18px;
+    }
+
+    .bullet-list li {
+      margin-bottom: 4px;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid #e2e5ef;
+      background-color: #ffffff;
+      padding: 16px;
+      text-align: center;
+      font-size: 0.78rem;
+      color: #777;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .nav-links {
+        display: none;
+      }
+      .hero-title {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top bar -->
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <span>English for Tourism Project</span>
+      <span>UNIMUS Semarang</span>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <div class="brand-mark"></div>
+        <span>EduTrip Link</span>
+      </div>
+      <nav class="nav-links">
+        <a href="#overview">Overview</a>
+        <a href="#itinerary">Itinerary</a>
+        <a href="#inclusions">Inclusions</a>
+        <a href="#notes">Notes</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <div class="breadcrumb">
+          <span>Home / Educational Trip / Java</span>
+        </div>
+        <h1 class="hero-title">3D2N Jakarta – Bandung Educational Trip</h1>
+        <p class="hero-subtitle">
+          Round trip journey from Muhammadiyah University of Semarang to Jakarta and Bandung for students and lecturers.
+        </p>
+        <div class="hero-tags">
+          <span class="tag">Duration 3 Days 2 Nights</span>
+          <span class="tag">Departure from UNIMUS Campus</span>
+          <span class="tag">Private bus transportation</span>
+        </div>
+        <ul class="hero-list">
+          <li>Visit Dufan and Ancol Beach in Jakarta</li>
+          <li>Explore Cibaduyut, Braga Street, Subang and Lembang in Bandung</li>
+          <li>Designed as a practice material for English for Tourism</li>
+        </ul>
+        <p class="hero-note">
+          All descriptions are written in English so students can practice explaining itineraries, destinations and activities to international guests.
+        </p>
+      </div>
+
+      <aside class="booking-card">
+        <div class="price-label">Sample price</div>
+        <div class="price-value">IDR 2.500.000</div>
+        <div class="price-caption">per participant in a twin sharing room</div>
+
+        <div class="info-row">
+          <span class="info-label">Departure</span>
+          <span>Semarang (UNIMUS)</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">Main destinations</span>
+          <span>Jakarta &amp; Bandung</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">Trip type</span>
+          <span>Educational &amp; leisure</span>
+        </div>
+
+        <a class="btn-main" href="#itinerary">View full itinerary</a>
+        <a class="btn-outline" href="https://wa.me/6281234567890?text=Hello%2C%20I%20would%20like%20to%20ask%20about%20the%203D2N%20Jakarta%20Bandung%20Educational%20Trip." target="_blank">
+          Contact tour coordinator
+        </a>
+
+        <p class="booking-note">
+          This website is only a student project for English for Tourism. Price, schedule and facilities are examples and can be modified by the lecturer or student.
+        </p>
+      </aside>
+    </div>
+  </section>
+
+  <!-- Tabs -->
+  <section class="container tabs-wrapper">
+    <div class="tabs-header">
+      <button class="tab-button active" data-tab="overview">Overview</button>
+      <button class="tab-button" data-tab="itinerary">Itinerary</button>
+      <button class="tab-button" data-tab="inclusions">Inclusions</button>
+      <button class="tab-button" data-tab="exclusions">Exclusions</button>
+      <button class="tab-button" data-tab="notes">Important notes</button>
+    </div>
+    <div class="tabs-body">
+      <!-- Overview -->
+      <div class="tab-pane active" id="overview">
+        <h2 id="overview" style="font-size:1.05rem;margin-bottom:6px;">Trip overview</h2>
+        <p style="margin-bottom:10px;">
+          This three day program connects Semarang, Jakarta and Bandung through a compact educational itinerary.
+          Participants gather at Muhammadiyah University of Semarang then travel by bus to Jakarta for a day of fun at Dufan and Ancol Beach.
+          On the second day the group continues to Bandung to experience Cibaduyut Market, Braga Street, Subang and Lembang.
+          The last day focuses on souvenirs and the return journey to Semarang.
+        </p>
+        <p style="margin-bottom:10px;">
+          The itinerary below is taken from a real campus program and rewritten in English.
+          It can be used by students as material to practice tour commentary, giving information about timing and places, and handling a group schedule in English.
+        </p>
+      </div>
+
+      <!-- Itinerary -->
+      <div class="tab-pane" id="itinerary">
+        <h2 id="itinerary" style="font-size:1.05rem;margin-bottom:10px;">Detailed day by day itinerary</h2>
+
+        <!-- Day 1 -->
+        <div class="day-block">
+          <div class="day-title">Day 1 – Semarang to Jakarta</div>
+          <div class="day-sub">Departure from UNIMUS Campus and visit to Dufan and Ancol Beach</div>
+          <table class="itinerary">
+            <thead>
+              <tr>
+                <th class="day-col">Day</th>
+                <th class="time-col">Time</th>
+                <th>Information</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td rowspan="10" class="day-col">Day 1</td>
+                <td class="time-col">05.00 – 05.30</td>
+                <td>Gathering at Unimus Campus and preparation of tour group</td>
+              </tr>
+              <tr>
+                <td class="time-col">05.30 – 07.00</td>
+                <td>Go to Jakarta</td>
+              </tr>
+              <tr>
+                <td class="time-col">07.00 – 08.00</td>
+                <td>Breakfast at Batang–Pemalang toll rest area</td>
+              </tr>
+              <tr>
+                <td class="time-col">08.00 – 12.00</td>
+                <td>Continuing the journey to Jakarta</td>
+              </tr>
+              <tr>
+                <td class="time-col">12.00 – 13.00</td>
+                <td>Lunch at Cikampek toll rest area</td>
+              </tr>
+              <tr>
+                <td class="time-col">13.00 – 15.00</td>
+                <td>Continuing the journey to Jakarta</td>
+              </tr>
+              <tr>
+                <td class="time-col">14.00 – 17.00</td>
+                <td>Arrival at Dufan Jakarta</td>
+              </tr>
+              <tr>
+                <td class="time-col">17.00 – 18.30</td>
+                <td>Continuing to Ancol Beach and photo session</td>
+              </tr>
+              <tr>
+                <td class="time-col">18.30 – 19.30</td>
+                <td>Dinner at Ancol Beach resto</td>
+              </tr>
+              <tr>
+                <td class="time-col">20.00</td>
+                <td>Check in hotel and night rest</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Day 2 -->
+        <div class="day-block">
+          <div class="day-title">Day 2 – Jakarta to Bandung</div>
+          <div class="day-sub">Cibaduyut Market, Braga Street, Subang and Lembang</div>
+          <table class="itinerary">
+            <thead>
+              <tr>
+                <th class="day-col">Day</th>
+                <th class="time-col">Time</th>
+                <th>Information</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td rowspan="11" class="day-col">Day 2</td>
+                <td class="time-col">05.30 – 06.00</td>
+                <td>Breakfast at the hotel &amp; check out</td>
+              </tr>
+              <tr>
+                <td class="time-col">06.00 – 10.00</td>
+                <td>Travel to Bandung via the Cipularang toll road</td>
+              </tr>
+              <tr>
+                <td class="time-col">10.00 – 11.30</td>
+                <td>Cibaduyut Market – a shopping destination for Bandung's signature leather shoes and bags</td>
+              </tr>
+              <tr>
+                <td class="time-col">11.30 – 12.00</td>
+                <td>Journey to Bandung city center</td>
+              </tr>
+              <tr>
+                <td class="time-col">12.00 – 14.15</td>
+                <td>Lunch at Saung Kabayan Restaurant</td>
+              </tr>
+              <tr>
+                <td class="time-col">14.15 – 15.00</td>
+                <td>Braga Street – heritage tourism and photo spot in Bandung city</td>
+              </tr>
+              <tr>
+                <td class="time-col">15.00 – 17.00</td>
+                <td>Trip to Subang (Ciater area)</td>
+              </tr>
+              <tr>
+                <td class="time-col">19.00 – 20.00</td>
+                <td>Dinner at a restaurant in the Lembang area</td>
+              </tr>
+              <tr>
+                <td class="time-col">20.00 – 21.00</td>
+                <td>Check in at Lembang Hotel</td>
+              </tr>
+              <tr>
+                <td class="time-col">21.00 – 22.00</td>
+                <td>Participant sharing session</td>
+              </tr>
+              <tr>
+                <td class="time-col">22.00</td>
+                <td>Night rest</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Day 3 -->
+        <div class="day-block">
+          <div class="day-title">Day 3 – Bandung to Semarang</div>
+          <div class="day-sub">Souvenir shopping and return to Muhammadiyah University of Semarang</div>
+          <table class="itinerary">
+            <thead>
+              <tr>
+                <th class="day-col">Day</th>
+                <th class="time-col">Time</th>
+                <th>Information</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td rowspan="11" class="day-col">Day 3</td>
+                <td class="time-col">05.00 – 06.00</td>
+                <td>Wake up and get ready</td>
+              </tr>
+              <tr>
+                <td class="time-col">06.00 – 07.00</td>
+                <td>Breakfast at the hotel</td>
+              </tr>
+              <tr>
+                <td class="time-col">07.00 – 07.30</td>
+                <td>Check out of the hotel</td>
+              </tr>
+              <tr>
+                <td class="time-col">07.30 – 08.00</td>
+                <td>Travel to the souvenir shop</td>
+              </tr>
+              <tr>
+                <td class="time-col">08.00 – 09.00</td>
+                <td>Shopping at the Kartika Sari or Prima souvenir shop</td>
+              </tr>
+              <tr>
+                <td class="time-col">09.00 – 10.00</td>
+                <td>Travel to the rest area</td>
+              </tr>
+              <tr>
+                <td class="time-col">10.00 – 11.00</td>
+                <td>Rest and lunch</td>
+              </tr>
+              <tr>
+                <td class="time-col">11.00 – 14.30</td>
+                <td>Travel to Semarang via the Cikampek toll road</td>
+              </tr>
+              <tr>
+                <td class="time-col">14.30</td>
+                <td>Arrival at Muhammadiyah University of Semarang</td>
+              </tr>
+              <tr>
+                <td class="time-col">14.45</td>
+                <td>Closing prayer and documentation</td>
+              </tr>
+              <tr>
+                <td class="time-col">15.00</td>
+                <td>Participants return home</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Inclusions -->
+      <div class="tab-pane" id="inclusions">
+        <h2 id="inclusions" style="font-size:1.05rem;margin-bottom:8px;">Package inclusions (sample)</h2>
+        <ul class="bullet-list">
+          <li>Private air conditioned bus for the whole program</li>
+          <li>Two nights accommodation in Jakarta and Lembang based on twin sharing</li>
+          <li>Meals according to the itinerary (breakfast, lunch and dinner)</li>
+          <li>Entrance tickets to Dufan Jakarta and Ancol Beach area</li>
+          <li>Parking, toll fees and driver service</li>
+          <li>Tour leader or guide from campus</li>
+        </ul>
+      </div>
+
+      <!-- Exclusions -->
+      <div class="tab-pane" id="exclusions">
+        <h2 style="font-size:1.05rem;margin-bottom:8px;">Package exclusions (sample)</h2>
+        <ul class="bullet-list">
+          <li>Personal expenses such as snacks, extra drinks and souvenirs</li>
+          <li>Optional rides that are not included by the organizer</li>
+          <li>Medical expenses or personal travel insurance</li>
+          <li>Other costs outside the written itinerary and agreement</li>
+        </ul>
+      </div>
+
+      <!-- Notes -->
+      <div class="tab-pane" id="notes">
+        <h2 id="notes" style="font-size:1.05rem;margin-bottom:8px;">Important notes for students</h2>
+        <ul class="bullet-list">
+          <li>The trip schedule is written in twenty four hour format so it is easier to read for international guests.</li>
+          <li>Students can use this page to practice explaining every time slot in English during presentation or role play.</li>
+          <li>Lecturers may adjust the price, hotel name and transport based on real campus programs.</li>
+          <li>This layout follows a commercial tour page style so it is suitable as an English for Tourism assignment.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    3D2N Jakarta – Bandung Educational Trip | Created as an English for Tourism student project
+  </footer>
+
+  <script>
+    // Simple tab switcher
+    const buttons = document.querySelectorAll(".tab-button");
+    const panes = document.querySelectorAll(".tab-pane");
+
+    buttons.forEach(button => {
+      button.addEventListener("click", () => {
+        const target = button.getAttribute("data-tab");
+        buttons.forEach(b => b.classList.remove("active"));
+        panes.forEach(p => p.classList.remove("active"));
+        button.classList.add("active");
+        document.getElementById(target).classList.add("active");
+      });
+    });
+  </script>
+</body>
+</html>
