@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ruang Pelancong | 3D2N Jakarta Bandung Student Trip</title>
   <style>
-    /* (SEMUA STYLE TETAP SAMA – TIDAK DIUBAH) */
     * {
       box-sizing: border-box;
       margin: 0;
@@ -30,6 +29,7 @@
       padding: 0 16px;
     }
 
+    /* Top bar */
     .topbar {
       background-color: #00996a;
       color: #ffffff;
@@ -43,6 +43,7 @@
       align-items: center;
     }
 
+    /* Header */
     header {
       background-color: #ffffff;
       border-bottom: 1px solid #e1e4ef;
@@ -68,16 +69,28 @@
       width: 26px;
       height: 26px;
       border-radius: 8px;
-      background: radial-gradient(circle at 30% 20%, #ffe58a, #ffb703);
-      box-shadow: 0 4px 10px rgba(0,0,0,0.18);
+      background: radial-gradient(circle at 30% 20%, #ffe58a 0, #ffd04a 40%, #ffb703 100%);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.18);
     }
 
-    .nav-links { display: flex; gap: 18px; font-size: 0.9rem; }
+    .nav-links {
+      display: flex;
+      gap: 18px;
+      font-size: 0.9rem;
+    }
 
-    .nav-links a { padding: 4px 6px; border-radius: 4px; color: #555; }
+    .nav-links a {
+      padding: 4px 6px;
+      border-radius: 4px;
+      color: #555;
+    }
 
-    .nav-links a:hover { color: #00996a; background-color: #f0f3ff; }
+    .nav-links a:hover {
+      color: #00996a;
+      background-color: #f0f3ff;
+    }
 
+    /* Hero */
     .hero {
       background: linear-gradient(120deg, #00996a, #00b88a);
       color: #ffffff;
@@ -91,78 +104,368 @@
       align-items: stretch;
     }
 
-    /* (STYLE LAIN TETAP SAMA) */
+    .breadcrumb {
+      font-size: 0.8rem;
+      margin-bottom: 6px;
+      opacity: 0.85;
+    }
+
+    .route-strip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background-color: rgba(0, 0, 0, 0.24);
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      margin-bottom: 8px;
+    }
+
+    .route-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background-color: #ffdd57;
+    }
+
+    .route-text {
+      font-weight: 500;
+      letter-spacing: 0.02em;
+    }
+
+    .hero-title {
+      font-size: 1.9rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .hero-subtitle {
+      font-size: 0.96rem;
+      margin-bottom: 14px;
+      opacity: 0.95;
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 18px;
+      font-size: 0.8rem;
+    }
+
+    .tag {
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      background-color: rgba(0, 0, 0, 0.08);
+      white-space: nowrap;
+    }
+
+    .hero-list {
+      font-size: 0.9rem;
+      margin-bottom: 8px;
+    }
+
+    .hero-list li {
+      margin-left: 18px;
+      margin-bottom: 4px;
+    }
+
+    .hero-note {
+      font-size: 0.83rem;
+      margin-top: 8px;
+      opacity: 0.9;
+    }
+
+    /* Info strip under hero */
+    .info-strip {
+      margin-top: 18px;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+      font-size: 0.78rem;
+    }
+
+    .info-pill {
+      background-color: rgba(0, 0, 0, 0.18);
+      border-radius: 10px;
+      padding: 7px 8px;
+    }
+
+    .info-pill-label {
+      opacity: 0.8;
+      font-size: 0.73rem;
+    }
+
+    .info-pill-value {
+      font-weight: 600;
+      font-size: 0.83rem;
+    }
+
+    /* Booking card */
+    .booking-card {
+      background-color: #ffffff;
+      color: #222;
+      border-radius: 16px;
+      padding: 18px 18px 16px;
+      box-shadow: 0 14px 32px rgba(0, 0, 0, 0.18);
+    }
+
+    .price-label {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #00996a;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .price-value {
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin-bottom: 2px;
+    }
+
+    .price-caption {
+      font-size: 0.8rem;
+      color: #666;
+      margin-bottom: 12px;
+    }
+
+    .info-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.86rem;
+      margin-bottom: 5px;
+    }
+
+    .info-label {
+      color: #777;
+    }
+
+    .btn-main {
+      display: block;
+      margin-top: 14px;
+      width: 100%;
+      padding: 10px 12px;
+      border-radius: 999px;
+      border: none;
+      background-color: #ffb703;
+      color: #222;
+      font-weight: 700;
+      font-size: 0.95rem;
+      cursor: pointer;
+      text-align: center;
+    }
+
+    .btn-main:hover {
+      background-color: #ffa62b;
+    }
+
+    .btn-outline {
+      margin-top: 8px;
+      width: 100%;
+      padding: 9px 12px;
+      border-radius: 999px;
+      border: 1px solid #e0e4f0;
+      background-color: #ffffff;
+      font-size: 0.9rem;
+      cursor: pointer;
+    }
+
+    .btn-outline:hover {
+      background-color: #f5f7fb;
+    }
+
+    .booking-note {
+      margin-top: 10px;
+      font-size: 0.78rem;
+      color: #777;
+    }
+
+    /* Tabs */
+    .tabs-wrapper {
+      margin-top: 26px;
+      margin-bottom: 40px;
+    }
+
+    .tabs-header {
+      background-color: #ffffff;
+      border-radius: 10px 10px 0 0;
+      border: 1px solid #e1e4ef;
+      border-bottom: none;
+      padding: 6px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2px;
+    }
+
+    .tab-button {
+      padding: 8px 14px;
+      border-radius: 6px;
+      border: none;
+      background-color: transparent;
+      font-size: 0.86rem;
+      cursor: pointer;
+      color: #555;
+    }
+
+    .tab-button.active {
+      background-color: #00996a;
+      color: #ffffff;
+    }
+
+    .tabs-body {
+      border-radius: 0 0 10px 10px;
+      border: 1px solid #e1e4ef;
+      background-color: #ffffff;
+      padding: 18px 18px 22px;
+    }
+
+    .tab-pane {
+      display: none;
+      font-size: 0.92rem;
+    }
+
+    .tab-pane.active {
+      display: block;
+    }
+
+    .section-heading {
+      font-size: 1.05rem;
+      margin-bottom: 6px;
+      font-weight: 600;
+    }
+
+    .lead-text {
+      font-size: 0.94rem;
+      margin-bottom: 10px;
+    }
+
+    .bullet-list {
+      margin-left: 18px;
+      font-size: 0.92rem;
+    }
+
+    .bullet-list li {
+      margin-bottom: 4px;
+    }
+
+    /* Itinerary blocks */
+    .day-block {
+      margin-bottom: 18px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid #f0f2fb;
+    }
+
+    .day-title {
+      font-weight: 700;
+      font-size: 0.96rem;
+      color: #00996a;
+      margin-bottom: 4px;
+    }
+
+    .day-sub {
+      font-size: 0.86rem;
+      color: #777;
+      margin-bottom: 6px;
+    }
+
+    .day-text {
+      font-size: 0.9rem;
+    }
+
+    /* Highlight cards */
+    .highlight-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 8px;
+    }
+
+    .highlight-card {
+      background-color: #f8f9ff;
+      border-radius: 12px;
+      padding: 12px 12px 14px;
+      font-size: 0.86rem;
+    }
+
+    .highlight-card b {
+      display: block;
+      margin-bottom: 4px;
+      color: #00996a;
+      font-size: 0.9rem;
+    }
+
+    /* Price tab */
+    .price-tagline {
+      font-size: 0.9rem;
+      margin-bottom: 10px;
+    }
+
+    .price-emphasis {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #00996a;
+      margin-bottom: 4px;
+    }
+
+    .price-small {
+      font-size: 0.8rem;
+      color: #777;
+      margin-bottom: 12px;
+    }
+
+    .inline-wa {
+      display: inline-block;
+      margin-top: 8px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background-color: #25d366;
+      color: #ffffff;
+      font-size: 0.86rem;
+      font-weight: 600;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid #e1e4ef;
+      background-color: #ffffff;
+      padding: 16px;
+      text-align: center;
+      font-size: 0.78rem;
+      color: #777;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .nav-links {
+        display: none;
+      }
+      .hero-title {
+        font-size: 1.5rem;
+      }
+      .info-strip {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 600px) {
+      .highlight-grid {
+        grid-template-columns: 1fr;
+      }
+      .info-strip {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
 </head>
-
-<body>
-
-  <!-- HEADER BANNER -->
-  <div style="
-      width:100%;
-      display:flex;
-      justify-content:center;
-      background:#eaf9ff;
-      padding:22px 0;
-  ">
-      <img src="Spanduk Biru Karya Wisata Banner.png"
-           alt="Ruang Pelancong Header Banner"
-           style="
-              width:65%;
-              max-width:760px;
-              border-radius:12px;
-              box-shadow:0 4px 16px rgba(0,0,0,0.22);
-           ">
-  </div>
-
-  <!-- Top bar -->
-  <div class="topbar">
-    <div class="container topbar-inner">
-      <span>Ruang Pelancong Travel</span>
-      <span>Student travel project and educational trip sample</span>
-    </div>
-  </div>
-
-  <!-- Header -->
-  <header>
-    <div class="container nav">
-      <div class="brand">
-        <div class="brand-logo"></div>
-        <span>Ruang Pelancong</span>
-      </div>
-      <nav class="nav-links">
-        <a href="#overview">Overview</a>
-        <a href="#itinerary">Itinerary</a>
-        <a href="#highlights">Highlights</a>
-        <a href="#price">Price</a>
-        <a href="#notes">Notes</a>
-      </nav>
-    </div>
-  </header>
-
-  <!-- Hero -->
-  <!-- 🔽 BAGIAN INI TIDAK DIUBAH SAMA SEKALI 🔽 -->
-  <!-- Seluruh konten asli tetap sama persis -->
-  
-  <section class="hero">
-    <div class="container hero-grid">
-      <div>
-        <div class="breadcrumb">
-          Home / Student Trips / Jakarta Bandung
-        </div>
-
-        <div class="route-strip">
-          <span class="route-dot"></span>
-          <span class="route-text">Semarang - Jakarta - Bandung - Semarang</span>
-        </div>
-
-        <h1 class="hero-title">3D2N Jakarta Bandung Student Trip</h1>
-        <p class="hero-subtitle">
-          A short escape that combines amusement parks, beach views, shopping streets, hot springs and local food. 
-          Perfect for campus groups who want to learn and have fun together.
-        </p>
-
-        <!-- dan seterusnya... -->
 <body>
 
   <!-- Top bar -->
