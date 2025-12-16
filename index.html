@@ -97,20 +97,31 @@
   background-position: center;
   background-repeat: no-repeat;
   color: #ffffff;
-  padding: 24px 0 40px;
+  padding: 48px 0 64px;
+  position: relative;
+}
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.25); /* tipis, biar foto tetap kelihatan */
+  z-index: 0;
 }
 
-    .hero .route-strip {
-  background-color: rgba(0, 0, 0, 0.45);
+.hero > * {
+  position: relative;
+  z-index: 1;
+}
+.hero .route-strip {
+  background-color: rgba(0, 0, 0, 0.25);
 }
 
 .hero .tag {
-  background-color: rgba(0, 0, 0, 0.35);
-  border-color: rgba(255, 255, 255, 0.4);
+  background-color: rgba(0, 0, 0, 0.2);
 }
 
 .hero .info-pill {
-  background-color: rgba(0, 0, 0, 0.45);
+  background-color: rgba(0, 0, 0, 0.25);
 }
 
     .hero-grid {
@@ -480,6 +491,21 @@
         grid-template-columns: 1fr;
       }
     }
+    /* Header full width */
+.header-full {
+  width: 100%;
+  background-color: #ffffff;
+  border-bottom: 1px solid #e1e4ef;
+}
+
+.nav-inner {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 14px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
   </style>
 </head>
 <body>
@@ -511,8 +537,8 @@
   </div>
 
   <!-- Header -->
-  <header>
-    <div class="container nav">
+  <header class="header-full">
+  <div class="nav-inner">
       <div class="brand">
         <div class="brand-logo"></div>
         <span>Ruang Pelancong</span>
