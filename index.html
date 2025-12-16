@@ -1,10 +1,10 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ruang Pelancong | 3D2N Jakarta Bandung Student Trip</title>
-
   <style>
     * {
       box-sizing: border-box;
@@ -172,7 +172,13 @@
       margin-bottom: 4px;
     }
 
-    /* Info strip */
+    .hero-note {
+      font-size: 0.83rem;
+      margin-top: 8px;
+      opacity: 0.9;
+    }
+
+    /* Info strip under hero */
     .info-strip {
       margin-top: 18px;
       display: grid;
@@ -187,45 +193,95 @@
       padding: 7px 8px;
     }
 
+    .info-pill-label {
+      opacity: 0.8;
+      font-size: 0.73rem;
+    }
+
+    .info-pill-value {
+      font-weight: 600;
+      font-size: 0.83rem;
+    }
+
     /* Booking card */
     .booking-card {
       background-color: #ffffff;
       color: #222;
       border-radius: 16px;
-      padding: 18px;
+      padding: 18px 18px 16px;
       box-shadow: 0 14px 32px rgba(0, 0, 0, 0.18);
     }
 
     .price-label {
       font-size: 0.78rem;
       text-transform: uppercase;
+      letter-spacing: 0.08em;
       color: #00996a;
       font-weight: 600;
+      margin-bottom: 4px;
     }
 
     .price-value {
       font-size: 1.6rem;
       font-weight: 700;
+      margin-bottom: 2px;
+    }
+
+    .price-caption {
+      font-size: 0.8rem;
+      color: #666;
+      margin-bottom: 12px;
+    }
+
+    .info-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.86rem;
+      margin-bottom: 5px;
+    }
+
+    .info-label {
+      color: #777;
     }
 
     .btn-main {
       display: block;
       margin-top: 14px;
       width: 100%;
-      padding: 10px;
+      padding: 10px 12px;
       border-radius: 999px;
+      border: none;
       background-color: #ffb703;
+      color: #222;
       font-weight: 700;
+      font-size: 0.95rem;
+      cursor: pointer;
       text-align: center;
+    }
+
+    .btn-main:hover {
+      background-color: #ffa62b;
     }
 
     .btn-outline {
       margin-top: 8px;
       width: 100%;
-      padding: 9px;
+      padding: 9px 12px;
       border-radius: 999px;
       border: 1px solid #e0e4f0;
-      text-align: center;
+      background-color: #ffffff;
+      font-size: 0.9rem;
+      cursor: pointer;
+    }
+
+    .btn-outline:hover {
+      background-color: #f5f7fb;
+    }
+
+    .booking-note {
+      margin-top: 10px;
+      font-size: 0.78rem;
+      color: #777;
     }
 
     /* Tabs */
@@ -241,6 +297,7 @@
       border-bottom: none;
       padding: 6px;
       display: flex;
+      flex-wrap: wrap;
       gap: 2px;
     }
 
@@ -251,6 +308,7 @@
       background-color: transparent;
       font-size: 0.86rem;
       cursor: pointer;
+      color: #555;
     }
 
     .tab-button.active {
@@ -262,7 +320,7 @@
       border-radius: 0 0 10px 10px;
       border: 1px solid #e1e4ef;
       background-color: #ffffff;
-      padding: 18px;
+      padding: 18px 18px 22px;
     }
 
     .tab-pane {
@@ -280,52 +338,97 @@
       font-weight: 600;
     }
 
+    .lead-text {
+      font-size: 0.94rem;
+      margin-bottom: 10px;
+    }
+
     .bullet-list {
       margin-left: 18px;
+      font-size: 0.92rem;
     }
 
-    /* Include Exclude */
-    .ie-wrapper {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 14px;
-      margin-top: 14px;
+    .bullet-list li {
+      margin-bottom: 4px;
     }
 
-    .ie-box {
-      background: #f8f9ff;
-      border-radius: 12px;
-      padding: 14px;
-      font-size: 0.88rem;
+    /* Itinerary blocks */
+    .day-block {
+      margin-bottom: 18px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid #f0f2fb;
     }
 
-    .ie-box ul {
-      list-style: none;
-      padding-left: 0;
+    .day-title {
+      font-weight: 700;
+      font-size: 0.96rem;
+      color: #00996a;
+      margin-bottom: 4px;
     }
 
-    .ie-box li {
-      position: relative;
-      padding-left: 20px;
+    .day-sub {
+      font-size: 0.86rem;
+      color: #777;
       margin-bottom: 6px;
     }
 
-    .include li::before {
-      content: "✔";
-      position: absolute;
-      left: 0;
+    .day-text {
+      font-size: 0.9rem;
+    }
+
+    /* Highlight cards */
+    .highlight-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 8px;
+    }
+
+    .highlight-card {
+      background-color: #f8f9ff;
+      border-radius: 12px;
+      padding: 12px 12px 14px;
+      font-size: 0.86rem;
+    }
+
+    .highlight-card b {
+      display: block;
+      margin-bottom: 4px;
       color: #00996a;
-      font-weight: 700;
+      font-size: 0.9rem;
     }
 
-    .exclude li::before {
-      content: "✖";
-      position: absolute;
-      left: 0;
-      color: #d9534f;
-      font-weight: 700;
+    /* Price tab */
+    .price-tagline {
+      font-size: 0.9rem;
+      margin-bottom: 10px;
     }
 
+    .price-emphasis {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #00996a;
+      margin-bottom: 4px;
+    }
+
+    .price-small {
+      font-size: 0.8rem;
+      color: #777;
+      margin-bottom: 12px;
+    }
+
+    .inline-wa {
+      display: inline-block;
+      margin-top: 8px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background-color: #25d366;
+      color: #ffffff;
+      font-size: 0.86rem;
+      font-weight: 600;
+    }
+
+    /* Footer */
     footer {
       border-top: 1px solid #e1e4ef;
       background-color: #ffffff;
@@ -335,167 +438,361 @@
       color: #777;
     }
 
+    /* Responsive */
     @media (max-width: 900px) {
       .hero-grid {
         grid-template-columns: 1fr;
       }
     }
+
+    @media (max-width: 720px) {
+      .nav-links {
+        display: none;
+      }
+      .hero-title {
+        font-size: 1.5rem;
+      }
+      .info-strip {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 600px) {
+      .highlight-grid {
+        grid-template-columns: 1fr;
+      }
+      .info-strip {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
 </head>
-
 <body>
 
-<div class="topbar">
-  <div class="container topbar-inner">
-    <span>Ruang Pelancong Travel</span>
-    <span>Student travel project and educational trip sample</span>
+  <!-- HEADER BANNER -->
+  <div style="
+      width:100%;
+      display:flex;
+      justify-content:center;
+      background:#eaf9ff;
+      padding:22px 0;
+  ">
+      <img src="Spanduk Biru Karya Wisata Banner.png"
+           alt="Ruang Pelancong Banner"
+           style="
+              width:100%;
+              max-width:900px;
+              border-radius:12px;
+              box-shadow:0 4px 16px rgba(0,0,0,0.21);
+           ">
   </div>
-</div>
 
-<header>
-  <div class="container nav">
-    <div class="brand">
-      <div class="brand-logo"></div>
-      <span>Ruang Pelancong</span>
+  <!-- Top bar -->
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <span>Ruang Pelancong Travel</span>
+      <span>Student travel project and educational trip sample</span>
     </div>
-    <nav class="nav-links">
-      <a href="#overview">Overview</a>
-      <a href="#itinerary">Itinerary</a>
-      <a href="#highlights">Highlights</a>
-      <a href="#price">Price</a>
-      <a href="#notes">Notes</a>
-    </nav>
   </div>
-</header>
 
-<section class="hero">
-  <div class="container hero-grid">
-    <div>
-      <div class="breadcrumb">Home / Student Trips / Jakarta Bandung</div>
-      <div class="route-strip">
-        <span class="route-dot"></span>
-        <span class="route-text">Semarang - Jakarta - Bandung - Semarang</span>
+  <!-- Header -->
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <div class="brand-logo"></div>
+        <span>Ruang Pelancong</span>
       </div>
-
-      <h1 class="hero-title">3D2N Jakarta Bandung Student Trip</h1>
-      <p class="hero-subtitle">
-        A short escape combining amusement parks, shopping streets, hot springs and local food.
-      </p>
-
-      <div class="hero-tags">
-        <span class="tag">3 days 2 nights</span>
-        <span class="tag">Private bus</span>
-        <span class="tag">Hotel & meals</span>
-      </div>
-
-      <ul class="hero-list">
-        <li>Dufan and Ancol Beach experience</li>
-        <li>Bandung shopping and heritage walk</li>
-        <li>Cool highland atmosphere in Ciater</li>
-      </ul>
-
-      <div class="info-strip">
-        <div class="info-pill">Duration: 3D2N</div>
-        <div class="info-pill">Departure: Semarang</div>
-        <div class="info-pill">Trip type: Educational</div>
-        <div class="info-pill">Min group: 30 pax</div>
-      </div>
+      <nav class="nav-links">
+        <a href="#overview">Overview</a>
+        <a href="#itinerary">Itinerary</a>
+        <a href="#highlights">Highlights</a>
+        <a href="#price">Price</a>
+        <a href="#notes">Notes</a>
+      </nav>
     </div>
+  </header>
 
-    <aside class="booking-card">
-      <div class="price-label">Sample price</div>
-      <div class="price-value">IDR 2.500.000</div>
-      <a class="btn-main" href="#price">View details</a>
-      <a class="btn-outline" href="https://wa.me/6285741680335" target="_blank">
-        Chat via WhatsApp
-      </a>
-    </aside>
-  </div>
-</section>
-
-<section class="container tabs-wrapper">
-  <div class="tabs-header">
-    <button class="tab-button active" data-tab="overview">Overview</button>
-    <button class="tab-button" data-tab="itinerary">Itinerary</button>
-    <button class="tab-button" data-tab="highlights">Highlights</button>
-    <button class="tab-button" data-tab="price">Price & Includes</button>
-    <button class="tab-button" data-tab="notes">Notes</button>
-  </div>
-
-  <div class="tabs-body">
-
-    <div class="tab-pane active" id="overview">
-      <h2 class="section-heading">Trip overview</h2>
-      <p>This sample trip is designed for campus groups and English for Tourism practice.</p>
-    </div>
-
-    <div class="tab-pane" id="itinerary">
-      <h2 class="section-heading">Short itinerary</h2>
-      <p>Day 1 Jakarta. Day 2 Bandung. Day 3 return.</p>
-    </div>
-
-    <div class="tab-pane" id="highlights">
-      <h2 class="section-heading">Trip highlights</h2>
-      <ul class="bullet-list">
-        <li>Amusement park and beach</li>
-        <li>Shopping and heritage street</li>
-        <li>Cool mountain air</li>
-      </ul>
-    </div>
-
-    <div class="tab-pane" id="price">
-      <h2 class="section-heading">Price, includes & excludes</h2>
-
-      <div class="ie-wrapper">
-        <div class="ie-box include">
-          <h4>Includes</h4>
-          <ul>
-            <li>Jakarta–Bandung–Semarang tourist bus transportation</li>
-            <li>2 nights hotel accommodation</li>
-            <li>Meals, entrance tickets, tour leader</li>
-            <li>Documentation and mineral water</li>
-          </ul>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <div class="breadcrumb">
+          Home / Student Trips / Jakarta Bandung
         </div>
 
-        <div class="ie-box exclude">
-          <h4>Excludes</h4>
-          <ul>
-            <li>Personal expenses</li>
-            <li>Optional rides</li>
-            <li>Travel insurance</li>
-          </ul>
+        <div class="route-strip">
+          <span class="route-dot"></span>
+          <span class="route-text">Semarang - Jakarta - Bandung - Semarang</span>
+        </div>
+
+        <h1 class="hero-title">3D2N Jakarta Bandung Student Trip</h1>
+        <p class="hero-subtitle">
+          A short escape that combines amusement parks, beach views, shopping streets, hot springs and local food. 
+          Perfect for campus groups who want to learn and have fun together.
+        </p>
+        <div class="hero-tags">
+          <span class="tag">3 days 2 nights</span>
+          <span class="tag">Departure from campus</span>
+          <span class="tag">Private bus</span>
+          <span class="tag">Hotel and meals included</span>
+        </div>
+        <ul class="hero-list">
+          <li>Play at Dufan and relax at Ancol beach area</li>
+          <li>Shop at Cibaduyut and take photos at Braga Street</li>
+          <li>Enjoy cool air in Kawah Putih </li>
+        </ul>
+        <p class="hero-note">
+
+        <!-- Info strip similar to product summary -->
+        <div class="info-strip">
+          <div class="info-pill">
+            <div class="info-pill-label">Duration</div>
+            <div class="info-pill-value">3 days 2 nights</div>
+          </div>
+          <div class="info-pill">
+            <div class="info-pill-label">Departure point</div>
+            <div class="info-pill-value">Universitas Muhammadiyah Semarang</div>
+          </div>
+          <div class="info-pill">
+            <div class="info-pill-label">Trip type</div>
+            <div class="info-pill-value">Educational and leisure group</div>
+          </div>
+          <div class="info-pill">
+            <div class="info-pill-label">Suggested group size</div>
+            <div class="info-pill-value">At least 30 participants</div>
+          </div>
         </div>
       </div>
+
+      <aside class="booking-card">
+        <div class="price-label">Sample starting price</div>
+        <div class="price-value">IDR 1.530.000</div>
+        <div class="price-caption">per person in twin sharing room</div>
+
+        <div class="info-row">
+          <span class="info-label">Departure</span>
+          <span>Semarang campus</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">Main route</span>
+          <span>Semarang - Jakarta - Bandung - Semarang</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">Trip style</span>
+          <span>Educational and leisure</span>
+        </div>
+
+        <a class="btn-main" href="#itinerary">View short itinerary</a>
+        <a
+          class="btn-outline"
+          href="https://wa.me/6285741680335?text=Hello%20Ruang%20Pelancong%2C%20I%20am%20interested%20in%20the%203D2N%20Jakarta%20Bandung%20Trip%20package."
+          target="_blank"
+        >
+          Chat via WhatsApp
+        </a>
+
+        <p class="booking-note">
+          This page is a promotional layout for academic purposes. Price, dates and services can be adjusted based on real campus programs.
+        </p>
+      </aside>
+    </div>
+  </section>
+
+  <!-- Tabs -->
+  <section class="container tabs-wrapper">
+    <div class="tabs-header">
+      <button class="tab-button active" data-tab="overview">Overview</button>
+      <button class="tab-button" data-tab="itinerary">Itinerary</button>
+      <button class="tab-button" data-tab="highlights">Highlights</button>
+      <button class="tab-button" data-tab="price">Price & Booking</button>
+      <button class="tab-button" data-tab="notes">Important Notes</button>
     </div>
 
-    <div class="tab-pane" id="notes">
-      <h2 class="section-heading">Important notes</h2>
-      <ul class="bullet-list">
-        <li>This page is for academic use</li>
-        <li>Prices and facilities are adjustable</li>
-      </ul>
+    <div class="tabs-body">
+      <!-- Overview -->
+      <div class="tab-pane active" id="overview">
+        <h2 id="overview" class="section-heading">Trip overview</h2>
+        <p class="lead-text">
+          This 3 day student trip connects Jakarta and Bandung in one compact journey. 
+          The program is designed for campus groups who want to enjoy amusement parks, heritage streets, shopping areas and cool highland scenery in a single package.
+        </p>
+        <p class="lead-text">
+          On the first day you travel from Semarang to Jakarta to experience Dufan and Ancol. 
+          The second day focuses on Bandung with Cibaduyut, Braga and Ciater hot spring area, followed by Lembang at night. 
+          On the last day you shop for local snacks before returning to campus.
+        </p>
+        <ul class="bullet-list">
+          <li>Comfortable bus transport and group escort</li>
+          <li>Hotel stay in Jakarta and Bandung area</li>
+          <li>Simple but enjoyable itinerary written in English</li>
+          <li>Suitable for English for Tourism assignments, role plays and presentations</li>
+        </ul>
+      </div>
+
+      <!-- Itinerary -->
+      <div class="tab-pane" id="itinerary">
+        <h2 id="itinerary" class="section-heading">Short day by day itinerary</h2>
+
+        <div class="day-block">
+          <div class="day-title">Day 01: Jakarta - Dufan and Ancol</div>
+          <div class="day-sub">Fun day in the capital city</div>
+          <p class="day-text">
+            After gathering at the campus, you travel to Jakarta with breakfast and lunch stops at highway rest areas. 
+            In the afternoon you arrive at Dufan to enjoy the rides, then continue to Ancol beach area for photos and relaxing. 
+            In the evening the group has dinner around Ancol before heading to the hotel for check in and rest.
+          </p>
+        </div>
+
+        <div class="day-block">
+          <div class="day-title">Day 02: Bandung - Kawah Putih - Cibaduyut - Braga Street</div>
+          <div class="day-sub">Shopping, heritage street and highland atmosphere</div>
+          <p class="day-text">
+            After breakfast and check-out, the journey continues to Bandung via the Cipularang toll road.
+The first stop is Kawah Putih, where participants enjoy the natural scenery and experience the unique volcanic landscape. The trip then proceeds to Cibaduyut for shopping and exploring local leather products. Lunch is arranged along the route.
+Next, the itinerary continues to Braga Street for a short heritage walk and photo session, allowing the group to enjoy the distinctive atmosphere of Bandung.
+In the evening, the group has dinner in the Lembang area, checks in to the hotel, and joins a short sharing session before resting for the night.
+
+          </p>
+        </div>
+
+        <div class="day-block">
+          <div class="day-title">Day 03: Souvenirs and return trip</div>
+          <div class="day-sub">Snacks, rest area and arrival back at campus</div>
+          <p class="day-text">
+            In the morning you have breakfast and check out from the hotel, then visit a souvenir center such as Kartika Sari or Prima for snack shopping. 
+            After a break and lunch at a rest area the group returns to Semarang. 
+            The journey ends at the university with a short closing, documentation and then students go back home.
+          </p>
+        </div>
+      </div>
+
+      <!-- Highlights -->
+      <div class="tab-pane" id="highlights">
+        <h2 id="highlights" class="section-heading">Trip highlights</h2>
+        <p class="lead-text">
+          Key experiences that make this trip attractive for students and campus groups.
+        </p>
+
+        <div class="highlight-grid">
+          <div class="highlight-card">
+            <b>Jakarta amusement and beach</b>
+            Enjoy famous rides at Dufan and relax at Ancol seaside area with group photos and sunset views.
+          </div>
+          <div class="highlight-card">
+            <b>Bandung shopping and heritage</b>
+            Visit Cibaduyut leather center and stroll through historic Braga Street with classic buildings and cafes.
+          </div>
+          <div class="highlight-card">
+            <b>Cool highland vibes</b>
+            Feel the fresh air around Ciater and Lembang, perfect for evening gathering and sharing sessions.
+          </div>
+          <div class="highlight-card">
+            <b>Campus friendly program</b>
+            Schedule is designed for students with simple timing, easy coordination and group activities.
+          </div>
+          <div class="highlight-card">
+            <b>All in one package</b>
+            Transport, hotel and meals are planned together so the group can focus on enjoying the trip.
+          </div>
+          <div class="highlight-card">
+            <b>English for Tourism practice</b>
+            Students can practice guiding, describing destinations and explaining itineraries directly from this page.
+          </div>
+        </div>
+      </div>
+
+      <!-- Price & booking -->
+      <div class="tab-pane" id="price">
+        <h2 id="price" class="section-heading">Price and booking info</h2>
+        <p class="price-tagline">
+          This sample package is written for promotional use. The real price can be adjusted by the organizer or campus.
+        </p>
+        <div class="price-emphasis">Sample price: IDR 2.500.000 per person</div>
+        <div class="price-small">
+          Based on twin sharing room including bus transport, hotel and meals according to the itinerary.
+        </div>
+
+        <ul class="bullet-list">
+          <li>Minimum number of participants can be decided by the campus</li>
+          <li>Room type and hotel star level can be upgraded with different price</li>
+          <li>Extra stops or additional activities can be added upon request</li>
+        </ul>
+<h3 class="section-heading" style="margin-top:14px;">
+  Package Includes
+</h3>
+
+<ul class="bullet-list">
+  <li>Jakarta–Bandung–Semarang tourist bus transportation</li>
+  <li>2 nights hotel accommodation</li>
+  <li>3 breakfasts</li>
+  <li>3 lunches </li>
+  <li>2 dinners </li>
+  <li>Dufan Jakarta entrance ticket</li>
+  <li>Ancol Beach entrance ticket</li>
+  <li>Kawah Putih Ciwidey tour ticket</li>
+  <li>Tour leader / travel companion</li>
+  <li>Photo documentation of activities</li>
+  <li>Mineral water during the trip</li>
+  <li>Parking fees, tolls, and tourist attraction fees</li>
+</ul>
+
+<h3 class="section-heading" style="margin-top:14px;">
+  Package Excludes
+</h3>
+
+<ul class="bullet-list">
+  <li>Personal expenses such as souvenirs and shopping</li>
+  <li>Additional paid rides at Dufan</li>
+  <li>Optional activities or rides at Ancol or Ciater</li>
+  <li>Meals & drinks outside of the scheduled programme</li>
+  <li>Personal medication & health needs</li>
+  <li>Travel insurance</li>
+</ul>
+
+        <a
+          class="inline-wa"
+          target="_blank"
+          href="https://wa.me/6285741680335?text=Hello%20Ruang%20Pelancong%2C%20I%20would%20like%20to%20ask%20about%20the%203D2N%20Jakarta%20Bandung%20Student%20Trip."
+        >
+          Contact Ruang Pelancong via WhatsApp
+        </a>
+      </div>
+
+      <!-- Notes -->
+      <div class="tab-pane" id="notes">
+        <h2 id="notes" class="section-heading">Important notes for students and lecturers</h2>
+        <ul class="bullet-list">
+          <li>This page can be printed or shown in class as an example of an English tour package.</li>
+          <li>Lecturers can ask students to present the itinerary using their own words based on this layout.</li>
+          <li>Time schedule, hotel name and restaurant can be changed while keeping the same structure.</li>
+          <li>Students may rewrite the description to practice different levels of formality in English.</li>
+          <li>For real use, make sure to confirm all prices and facilities with a trusted travel agency.</li>
+        </ul>
+      </div>
     </div>
+  </section>
 
-  </div>
-</section>
+  <footer>
+    Ruang Pelancong Travel 3D2N Jakarta Bandung Student Trip | Created as an English for Tourism project example
+  </footer>
 
-<footer>
-  Ruang Pelancong | English for Tourism project example
-</footer>
+  <script>
+    const buttons = document.querySelectorAll(".tab-button");
+    const panes = document.querySelectorAll(".tab-pane");
 
-<script>
-  const buttons = document.querySelectorAll(".tab-button");
-  const panes = document.querySelectorAll(".tab-pane");
-
-  buttons.forEach(btn => {
-    btn.addEventListener("click", () => {
-      buttons.forEach(b => b.classList.remove("active"));
-      panes.forEach(p => p.classList.remove("active"));
-      btn.classList.add("active");
-      document.getElementById(btn.dataset.tab).classList.add("active");
+    buttons.forEach(button => {
+      button.addEventListener("click", () => {
+        const target = button.getAttribute("data-tab");
+        buttons.forEach(b => b.classList.remove("active"));
+        panes.forEach(p => p.classList.remove("active"));
+        button.classList.add("active");
+        document.getElementById(target).classList.add("active");
+      });
     });
-  });
-</script>
-
+  </script>
 </body>
 </html>
+
+
+FINALISASI DENGAN HTML INI 
+
